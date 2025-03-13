@@ -3,7 +3,7 @@
 @section('title', $category->name)
 
 @section('content')
-    <!-- Breadcrumb -->
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('home') }}">Accueil</a></li>
@@ -25,7 +25,6 @@
         </div>
     @endif
 
-    <!-- Child Categories -->
     @if($childCategories->count() > 0)
         <h2 class="mb-3">Sous-catégories</h2>
         <div class="row mb-4">
@@ -42,7 +41,6 @@
         </div>
     @endif
 
-    <!-- Products -->
     <h2 class="mb-3">Produits</h2>
     @if($products->count() > 0)
         <div class="row">
@@ -50,7 +48,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         @if($product->images->count() > 0)
-                            <img src="{{ asset('storage/' . $product->images->first()->path) }}" class="card-img-top" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->images->first()->path) }}" class="card-img-top product-image" alt="{{ $product->name }}">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
@@ -63,7 +61,6 @@
             @endforeach
         </div>
         
-        <!-- Pagination -->
         <div class="d-flex justify-content-center">
             {{ $products->links() }}
         </div>
@@ -71,3 +68,11 @@
         <p>Aucun produit disponible dans cette catégorie pour le moment.</p>
     @endif
 @endsection
+
+<style>
+    .product-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+</style>

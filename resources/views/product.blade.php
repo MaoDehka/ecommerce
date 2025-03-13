@@ -47,7 +47,6 @@
             @endif
         </div>
 
-        <!-- Product Info -->
         <div class="col-md-6">
             <h1 class="mb-3">{{ $product->name }}</h1>
             <p class="fs-3 fw-bold text-primary">{{ number_format($product->price, 2) }} €</p>
@@ -61,7 +60,6 @@
         </div>
     </div>
 
-    <!-- Similar Products -->
     @if($similarProducts->count() > 0)
         <div class="mt-5">
             <h2 class="mb-3">Produits similaires</h2>

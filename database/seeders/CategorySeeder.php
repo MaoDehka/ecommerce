@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
-        // Catégories de premier niveau
+        // Catégories
         $meubles = Category::create([
             'name' => 'Meubles',
             'description' => 'Découvrez notre collection de meubles pour chaque pièce de votre maison.'

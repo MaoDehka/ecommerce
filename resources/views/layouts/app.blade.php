@@ -23,6 +23,21 @@
                             <a class="nav-link" href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
                         </li>
                     @endforeach
+
+                    <!-- Si l'utilisateur est connecté, afficher le bouton de déconnexion -->
+                    @if(auth()->check())
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link" style="border: none; background: none;">Déconnexion</button>
+                            </form>
+                        </li>
+                    @else
+                        <!-- Sinon, afficher le lien vers la page de connexion -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Se connecter</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

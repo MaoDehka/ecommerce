@@ -11,7 +11,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     @if($product->images->count() > 0)
-                        <img src="{{ asset('storage/' . $product->images->first()->path) }}" class="card-img-top" alt="{{ $product->name }}">
+                        <img src="{{ asset('storage/' . $product->images->first()->path) }}" class="card-img-top product-image" alt="{{ $product->name }}">
                     @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
@@ -24,3 +24,11 @@
         @endforeach
     </div>
 @endsection
+
+<style>
+    .product-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+</style>
